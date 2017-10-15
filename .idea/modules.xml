@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springlabs.iml" filepath="$PROJECT_DIR$/.idea/modules/springlabs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springlabs_main.iml" filepath="$PROJECT_DIR$/.idea/modules/springlabs_main.iml" group="springlabs" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springlabs_test.iml" filepath="$PROJECT_DIR$/.idea/modules/springlabs_test.iml" group="springlabs" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,69 @@
+allprojects {
+    group = 'com.epam.jl.spring'
+    version = '1.0-SNAPSHOT'
+}
+apply plugin: 'java'
+sourceCompatibility =
+        targetCompatibility = 1.8//9
+
+compileJava {
+    sourceCompatibility =
+    targetCompatibility = 1.8//9
+    options.with {
+        fork = true
+//        forkOptions.javaHome = new File ('')//java_home
+//        compilerArgs.addAll(['--add-exports', 'jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED'])
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+configurations {
+    testCompile.extendsFrom compileOnly
+}
+
+// this turns logging on in tests:
+test.testLogging.showStandardStreams = true
+
+//test {
+//    jvmArgs '--add-modules', 'java.xml.bind', '-Djdk.attach.allowAttachSelf=true'
+//}
+
+dependencies {
+    compile "org.springframework:spring-context:$springVersion",
+
+            // AOP
+            'org.aspectj:aspectjrt:+',
+            'org.aspectj:aspectjweaver:+',
+            'aopalliance:aopalliance:+',
+
+            // JDBC
+            'com.mchange:c3p0:+',
+            'org.springframework:spring-jdbc:+',
+
+            // Common
+            'org.apache.logging.log4j:log4j-core:+'
+
+    runtime 'com.h2database:h2:+'
+
+    testCompile 'org.junit.jupiter:junit-jupiter-api:+',
+            'org.hamcrest:java-hamcrest:+',
+            'org.springframework:spring-test:+',
+            "org.junit.jupiter:junit-jupiter-params:5.0.0",
+            "org.junit.jupiter:junit-jupiter-engine:5.0.0"
+
+
+    compileOnly 'org.projectlombok:lombok:+',
+            'edu.washington.cs.types.checker:checker-framework:+'
+}
+
+task Wrapper(type: Wrapper) {
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '4.2.1'
+    distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+}
+
+
